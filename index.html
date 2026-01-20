@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barada Tuladhar - Personal Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #3498db;
+            --accent-color: #2ecc71;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --gray-color: #ecf0f1;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .profile-name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .profile-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--accent-color);
+        }
+        
+        /* Education Section */
+        .education-item {
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .edu-date {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .edu-degree {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .edu-institution {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+        
+        .edu-details {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 1.5rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .exp-date {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .exp-role {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .exp-organization {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .exp-details {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Skills and Activities */
+        .skills-container, .activities-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-card, .activity-card {
+            background-color: var(--gray-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .skill-title, .activity-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .last-updated {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            .skills-container, .activities-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-name {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="profile-name">Barada Tuladhar</h1>
+                <p class="profile-title">Development Finance Student | Financial Analyst | Club Leader</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>National College, Kathmandu University</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kathmandu, Nepal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title"><i class="fas fa-university"></i> Education</h2>
+            
+            <div class="education-item">
+                <div class="edu-date">2022 - 2026 (Expected)</div>
+                <div class="edu-degree">Undergraduate/Bachelor in Development Finance</div>
+                <div class="edu-institution">National College, Kathmandu University, Dhumbarahi, Kathmandu</div>
+                <div class="edu-details">
+                    <p>Facilitated academic sessions for Indian students in Nepal and participated in seminars at TISS, Mumbai.</p>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="edu-date">02/2025 - 06/2025</div>
+                <div class="edu-degree">Erasmus+ Student Exchange Programme</div>
+                <div class="edu-institution">Palacky University, Czech Republic</div>
+                <div class="edu-details">
+                    <p>Completed one semester of bachelor's abroad, involving networking with international teachers and students, and developing skills related to the degree.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshops & Professional Development -->
+        <section id="workshops">
+            <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> Workshops & Professional Development</h2>
+            
+            <div class="experience-item">
+                <div class="exp-date">05/2023</div>
+                <div class="exp-details">
+                    <div class="exp-role">Essay Writing Workshop</div>
+                    <div class="exp-organization">Study Square</div>
+                    <p>Participated in an essay writing workshop and entered a competition.</p>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-date">11/2024 - 12/2024</div>
+                <div class="exp-details">
+                    <div class="exp-role">45-day Financial Analyst Course</div>
+                    <div class="exp-organization">O.T.B. Study Hub and Kathmandu Metropolitan City Ward No.27</div>
+                    <p>Participated in a 45-day financial analyst course, learning practical skills regarding finance, including Microsoft Excel, taxation, accounting, and financial analysis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internships Section -->
+        <section id="internships">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Internships</h2>
+            
+            <div class="experience-item">
+                <div class="exp-date">09/2023 - 12/2023</div>
+                <div class="exp-details">
+                    <div class="exp-role">Financial Literacy Facilitator</div>
+                    <div class="exp-organization">FinLit Nepal, Sanepa, Lalitpur, Nepal</div>
+                    <p><strong>Key Responsibilities:</strong> Hosted sessions in public schools about Financial Literacy (School Bank Project).</p>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-date">09/2025 - 11/2025</div>
+                <div class="exp-details">
+                    <div class="exp-role">Customer Service Department</div>
+                    <div class="exp-organization">Nepal Bank Limited, Kalimati, Kathmandu, Nepal</div>
+                    <p><strong>Key Responsibilities:</strong> Handled the customer service department.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Exchange Programs -->
+        <section id="exchange">
+            <h2 class="section-title"><i class="fas fa-exchange-alt"></i> Student Exchange Programs</h2>
+            
+            <div class="experience-item">
+                <div class="exp-date">05/2024 - 07/2024</div>
+                <div class="exp-details">
+                    <div class="exp-role">Tata Institute of Social Science (TISS) Exchange Program 2024</div>
+                    <div class="exp-organization">Kathmandu and Mumbai</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Extra-Curricular Activities -->
+        <section id="activities">
+            <h2 class="section-title"><i class="fas fa-users"></i> Extra-Curricular Activities</h2>
+            
+            <div class="activities-container">
+                <div class="activity-card">
+                    <div class="activity-title">Leo Club of Kantipur</div>
+                    <div class="activity-details">
+                        <p><strong>Location:</strong> Ason, Kathmandu, Nepal</p>
+                        <p><strong>Duration:</strong> 2020 - 2024</p>
+                        <p><strong>Roles:</strong> Active member since 2020, serving as Performance Director (2023-2024) and Fundraising Director (2024-2025) on the Board.</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-title">Rotaract Club of Kathmandu Metro</div>
+                    <div class="activity-details">
+                        <p><strong>Location:</strong> Kathmandu</p>
+                        <p><strong>Duration:</strong> 08/2025 - Present</p>
+                        <p><strong>Role:</strong> Active member serving as Club Administration Director (2025-2026) on the Board.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="current-year"></span> Barada Tuladhar. All rights reserved.</p>
+                <p>Portfolio based on provided CV information</p>
+                <p class="last-updated">Last updated: January 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
